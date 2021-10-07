@@ -12,6 +12,8 @@ urlpatterns = [
     ), name="register"
     ),
     path('accounts/',include('django.contrib.auth.urls')),
+    path('api/',include('users.urls')),
+
 
     path('auth/',include('rest_framework.urls')),
     path('rest-auth/',include('rest_auth.urls')),
