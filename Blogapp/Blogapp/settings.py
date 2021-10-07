@@ -132,3 +132,9 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACKS = "bootstrap5"
 ACCOUNT_EMIAL_VERIFICATION ="none"
 ACCOUNT_EMIAL_VERIFICATION =(True)
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
