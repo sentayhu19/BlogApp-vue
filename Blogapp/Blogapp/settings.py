@@ -1,5 +1,5 @@
 
-from pathlib import Path
+from pathlib import Path  
 
 from django.contrib.auth.models import Permission
 
@@ -141,6 +141,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-    'rest_framework.Permission.IsAuthenticated',
+    'rest_framework.Permission.IsAuthenticated',  
     ]
 }
