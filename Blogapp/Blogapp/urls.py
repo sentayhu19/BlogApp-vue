@@ -25,15 +25,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #provides auth urls(login and logout) via the browserble api
     path('auth/', include('rest_framework.urls')),
-
     path('api/', include('users.urls')),
-
     #articles
     path('api/', include('articles.urls')),
   
-
     ############ django-registration  ##########
-
     path('accounts/register/',
         RegistrationView.as_view(
             form_class=UserForm,
