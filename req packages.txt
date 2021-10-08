@@ -1,0 +1,8 @@
+BlogApp
+******sentayhu*******
+
+Packages req when doing this blogApp
+
+Django   	pip install Django
+Virtual Env	pip install virtualenv
+Vue3           

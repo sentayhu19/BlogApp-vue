@@ -1,0 +1,15 @@
+******sentayhu*******
+
+ERROR when working and sol 
+-------------------------------------
+#1 when trying to create vue 
+vue *cannot  
+be loaded because running scripts is disabled    
+on this system. For more information, see        
+about_Execution_Policies at
+https:/go.microsoft.com/fwlink/?LinkID=135170.   
+At line:1 char:1
+
+
+SOL: run cmd in admin and execute this Set-ExecutionPolicy Unrestricted
+-------------------------------------
