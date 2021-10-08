@@ -1,8 +1,6 @@
 
-from pathlib import Path  
-
-from django.contrib.auth.models import Permission
-
+import os
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -12,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-n%j7b(p+or^v_ra#x-0@5q6494k#@vnuexvgkaz#h^hd!d*df-'
+SECRET_KEY = 'django-insecure-$!e9so6!#tp3rk+9xms_pnb04mc+6(oby+q4xn)0ipi&e5e$@1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -29,18 +27,31 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework', 
-    'rest_framework.authtoken',
+    'django.contrib.sites', #rquired by allauth and 'rest_auth.registration'
+
+
+    'rest_framework',
+    'rest_framework.authtoken', #for token authentication
+
+    #allauth packages (required by django-rest-allauth)
     'allauth',
     'allauth.account',
-'allauth.socialaccount',
-'rest_auth',
-'rest_auth.registration',
-"crispy_forms",
-"crispy_bootstrap5",
-'django.contrib.sites',
-    'users', 
+    'allauth.socialaccount',
+
+    #django-rest-allauth
+    'rest_auth',
+    'rest_auth.registration',
+
+    #crispy_forms
+    "crispy_forms",
+    "crispy_bootstrap5",
+
+    #webpackloader
+   
+
+    'users',
     'articles',
+
 
 ]
 
@@ -59,7 +70,8 @@ ROOT_URLCONF = 'Blogapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        #'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [BASE_DIR/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,9 +130,15 @@ USE_L10N = True
 
 USE_TZ = True
 
-LOGIN_URL = "accounts/login"
-LOGIN_REDIRECT_URL = "/"
+#django auth settings
+# requests' redirected for login when using the login_required() decorator,
+LOGIN_URL = "accounts/login/"
+#redirect after login when the LoginView doesn’t get a next GET parameter.
+LOGIN_REDIRECT_URL = "/" 
+# requests' redirect after logout if LogoutView doesn’t have a next_page attribute
 LOGOUT_REDIRECT_URL = "/"
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
@@ -130,18 +148,34 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 AUTH_USER_MODEL = 'users.UserModel'
-SITE_ID= 1
+
+#required by pakages requiring 'django.contrib.sites'
+SITE_ID = 1
+
+#crispy_forms configaration
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-CRISPY_TEMPLATE_PACKS = "bootstrap5"
-ACCOUNT_EMIAL_VERIFICATION ="none"
-ACCOUNT_EMIAL_VERIFICATION =(True)
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+#allauth configaration
+ACCOUNT_EMAIL_VERIFICATION = "none"
+ACCOUNT_EMAIL_REQUIRED = True
+
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
+     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    ],
+     ],
     'DEFAULT_PERMISSION_CLASSES': [
-    'rest_framework.Permission.IsAuthenticated',  
+        'rest_framework.permissions.IsAuthenticated',
     ]
+}
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'dist/', # must end with slash
+        'STATS_FILE': BASE_DIR/'frontend/webpack-stats.json',
+        # 'STATS_FILE': os.path.join(BASE_DIR, '../frontend', 'webpack-stats.json'),
+    }
 }

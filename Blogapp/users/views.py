@@ -1,9 +1,13 @@
-from django.shortcuts import render
-from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializers import UserSerializer
+from rest_framework.response import Response
+from .serializers import UserModelSerializer
+
 # Create your views here.
+
 class UserView(APIView):
-    def get (self,request):
-        serializer = UserSerializer(request.user)
-        return Response(serializer.data)  
+    # and permissions authentication are globally set 
+    def get(self, request):
+
+        # a serializer instace for the rquesting user
+        Serializer = UserModelSerializer(request.user) 
+        return Response(Serializer.data)
