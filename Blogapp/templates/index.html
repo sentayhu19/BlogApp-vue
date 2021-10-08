@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
-
+{% load render_bundle from webpack_loader %}
 {% block body %}
 <h1> Welcome to Blog App</h1>
 <div id="app"></div>
+{% render_bundle 'app' %}
 {% endblock %}
 
 

@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
 
     #webpackloader
-   
+   'webpack_loader',
 
     'users',
     'articles',
@@ -175,7 +175,7 @@ REST_FRAMEWORK = {
 WEBPACK_LOADER = {
     'DEFAULT': {
         'BUNDLE_DIR_NAME': 'dist/', # must end with slash
-        'STATS_FILE': BASE_DIR/'frontend/webpack-stats.json',
+        'STATS_FILE': os.path.join(BASE_DIR,'frontendsvb','webpack-stats.json'),
         # 'STATS_FILE': os.path.join(BASE_DIR, '../frontend', 'webpack-stats.json'),
     }
 }

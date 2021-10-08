@@ -5,4 +5,4 @@ class IndexTemplateView(LoginRequiredMixin, TemplateView):
 
     def get_template_names(self): #overidden
         template_name = "index.html"
-        return 
+        return template_name

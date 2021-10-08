@@ -2,7 +2,15 @@ BlogApp
 ******sentayhu*******
 
 Packages req when doing this blogApp
+Package			cmd
 
-Django   	pip install Django
-Virtual Env	pip install virtualenv
+Django   		pip install Django
+Virtual Env		pip install virtualenv
 Vue3           
+webpack			npm install --save-dev webpack-bundle-tracker@0.4.3
+django-webpack-loader	pip install django-webpack-loader
+
+
+
+
+******************SVB***************
