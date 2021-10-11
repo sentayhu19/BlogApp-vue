@@ -1,14 +1,9 @@
 {% extends "base.html" %}
-
-<!-- import render bundle from webpack -->
 {% load render_bundle from webpack_loader %} 
-
 {% block content %}
-<h1>welcome to the dj_vuejs SPA main page</h1>
-
-<div id="app">
-</div> 
-<!-- inject/mount the vue app using render_bundle -->
-{% render_bundle 'app' %}
-
-{% endblock %}
+    <h2>Content for My App</h2>
+    <p>Stuff etc etc.</p>
+    <div id="app">
+        {% render_bundle 'app' %}
+    </div> 
+{% endblock content %}

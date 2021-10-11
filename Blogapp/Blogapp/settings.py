@@ -70,8 +70,8 @@ ROOT_URLCONF = 'Blogapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        #'DIRS': [os.path.join(BASE_DIR, 'templates')],
-        'DIRS': [BASE_DIR/'templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+      #  'DIRS': [BASE_DIR/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -175,7 +175,7 @@ REST_FRAMEWORK = {
 WEBPACK_LOADER = {
     'DEFAULT': {
         'BUNDLE_DIR_NAME': 'dist/', # must end with slash
-        'STATS_FILE': BASE_DIR/'frontendsvb'/'webpack-stats.json',
-        # 'STATS_FILE': os.path.join(BASE_DIR, '../frontend', 'webpack-stats.json'),
+       # 'STATS_FILE': BASE_DIR/'frontendsvb'/'webpack-stats.json',
+        'STATS_FILE': os.path.join(BASE_DIR, 'frontend', 'webpack-stats.json'),
     }
 }
