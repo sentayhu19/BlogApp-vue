@@ -1,13 +1,18 @@
 <template>
 <div class = "container mt-4">
     <div v-for="article in articles" :key="article.pk">
-        <p class="mb-0">Author:
+        <h5 class="mb-0"> <h4 style='background-color:green; width:10%; color:white'>Author:  {{article.author}} </h4>
             <span class="badge bg-primary">
-            {{article.author}}
+           
             </span>
-             </p>
-         <h3>    {{article.title}} </h3>
-         <small> {{article.created_at}} </small>
+             </h5>
+         <h3><router-link 
+         class="link-style" 
+         :to="{name:'details',params:{slug:article.slug}}">  
+               {{article.title}}
+              </router-link> 
+              </h3>
+         <small style='background-color:black; width:10%; color:white'> {{article.created_at}} </small>
            <hr>
       </div>
      
@@ -51,5 +56,14 @@ export default {
 </script>
 
 <style>
-
+.link-style {
+    font-weight:bold;
+    color:black;
+     text-decoration:none;
+}
+.link-style:hover
+{
+    text-decoration:none;
+    color:gray;
+}
 </style>
