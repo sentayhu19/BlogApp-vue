@@ -12,6 +12,6 @@ class Article(models.Model):
     slug = SlugField(max_length= 250, unique= True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL,
                             on_delete= models.CASCADE,
-                            related_name= "articles" )
+                            related_name= "articles")
     def __str__(self):
         return self.title

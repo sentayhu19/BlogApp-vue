@@ -9,8 +9,12 @@ Virtual Env		pip install virtualenv
 Vue3           
 webpack			npm install --save-dev webpack-bundle-tracker@0.4.3
 django-webpack-loader	pip install django-webpack-loader
-
-
-
+django-allauth		python -m pip install django-allauth
+django-rest-auth	pip install django-rest-auth
+django-crispy-forms	pip install django-crispy-forms
+django-webpack-loader	pip install django-webpack-loader
+django_registration	pip install django_registration
+crispy-bootstrap5
+vue-router		npm install vue-router
 
 ******************SVB***************

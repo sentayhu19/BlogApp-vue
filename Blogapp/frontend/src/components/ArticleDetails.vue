@@ -1,6 +1,14 @@
 <template>
-  <div class="container">
+  <div class="container mt-5">
 <h3>{{article.title}} </h3>
+
+<h5 class="mt-3"> Author: 
+    <span class="badge bg-primary">
+        {{article.author}}
+        </span>
+        </h5>
+        <p class="mt-3">{{article.body}}</p>
+        <h6>{{article.created_at}}</h6>
   </div>
 </template>
 
