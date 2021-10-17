@@ -6,7 +6,7 @@ from django.conf import settings
 # Create your models here.
 
 class Article(models.Model):
-    created_at = models.DateTimeField(auto_created= True)
+    created_at = models.DateTimeField(auto_now_add= True)
     title = models.CharField(max_length= 300)
     body = models.TextField()
     slug = SlugField(max_length= 250, unique= True)

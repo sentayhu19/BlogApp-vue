@@ -37,7 +37,7 @@ export default {
                     'Contenet-Type':'application/json',
                 'X-CSRFTOKEN':csrftoken 
                 }
-                })    //ch
+                })    
             .then(resp=>resp.json())
            .then((data)=> {
                this.articles.push(...data)

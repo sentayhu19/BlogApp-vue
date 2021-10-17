@@ -13,6 +13,13 @@ vue <template>
     Publish Article 
     </button>
     </form>
+    <div v-if="error"
+    class="alert alert-warning alert-disissible fade show mt-5"
+    role="alert" style="color:red; width:20%"
+    >
+    <br><br>
+<strong>{{error}}</strong>
+    </div>
   </div>
 </template> 
 
@@ -32,7 +39,7 @@ methods:{
   {
     if(!this.title || !this.body)
     {
-this.error ="Please fill the feilds"
+this.error ="Please fill the fields"
     }
     else{
        fetch('api/articles/',{ 
